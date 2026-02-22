@@ -61,6 +61,10 @@ The models are trained and evaluated on the **MNIST** dataset.
 ### Installation
 
 1.  Clone the repository.
+    ```bash
+    git clone https://github.com/kaitosuzuki-CS/DynamicTransformer.git
+    cd DynamicTransformer
+    ```
 2.  Install dependencies using Conda:
     ```bash
     conda env create -f environment.yml
@@ -78,21 +82,27 @@ The models are trained and evaluated on the **MNIST** dataset.
 To train the baseline SimpleViT:
 
 ```bash
-python scripts/train.py --model simplevit --model-config configs/simplevit_model.yml --train-config configs/simplevit_train.yml
+python -m scripts.train --model simplevit --model-config configs/simplevit_model.yml --train-config configs/simplevit_train.yml
 ```
 
 To train the DynamicViT with Contextual Bandit:
 
 ```bash
-python scripts/train.py --model dynamicvit --model-config configs/dynamicvit_model.yml --train-config configs/dynamicvit_train.yml
+python -m scripts.train --model dynamicvit --model-config configs/dynamicvit_model.yml --train-config configs/dynamicvit_train.yml
 ```
 
 ### Inference
 
-To run inference with a trained model:
+To run inference with the baseline SimpleViT:
 
 ```bash
-python scripts/infer.py --model dynamicvit --model-config configs/dynamicvit_model.yml --train-config configs/dynamicvit_train.yml --ckpt-path checkpoints/dynamicvit/final_model.pt
+python -m scripts.infer --model simplevit --model-config configs/simplevit_model.yml --train-config configs/simplevit_train.yml --ckpt-path checkpoints/simplevit/final_model.pt
+```
+
+To run inference with the DynamicViT:
+
+```bash
+python -m scripts.infer --model dynamicvit --model-config configs/dynamicvit_model.yml --train-config configs/dynamicvit_train.yml --ckpt-path checkpoints/dynamicvit/final_model.pt
 ```
 
 ## Project Files
