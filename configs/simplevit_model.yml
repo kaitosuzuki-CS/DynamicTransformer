@@ -1,0 +1,12 @@
+im_channels: 1
+embed_dim: 64
+num_classes: 10
+max_timesteps: 12
+embedding:
+  patch_size: [4, 4]
+  max_len: 128
+block:
+  hidden_dim: 128
+  num_heads: 16
+  dropout: 0.1
+  num_layers: 1

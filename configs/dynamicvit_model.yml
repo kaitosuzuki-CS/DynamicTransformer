@@ -1,0 +1,28 @@
+adapter:
+  im_channels: 1
+  num_actions: 12
+  encoder:
+    channels: [1, 32, 64, 128]
+    kernel_size: [3, 4, 4]
+    stride: [1, 2, 2]
+    padding: [1, 1, 1]
+    num_res_layers: [1, 1, 1]
+    dropout: 0.1
+  linear:
+    features: [128, 32]
+    dropout: 0.1
+
+classifier:
+  ckpt_path: "checkpoints/simplevit/final_model.pt"
+  im_channels: 1
+  embed_dim: 64
+  num_classes: 10
+  max_timesteps: 12
+  embedding:
+    patch_size: [4, 4]
+    max_len: 128
+  block:
+    hidden_dim: 128
+    num_heads: 16
+    dropout: 0.1
+    num_layers: 1
